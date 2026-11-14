@@ -1,8 +1,22 @@
+@font-face {
+  font-family: Central;
+  src: url(Centralwell.ttf)
+  format('truetype');
+}
+
+@font-face {
+  font-family: Im-Fell;
+  src: url(imfell.ttf)
+  format('truetype');
+  
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: "Georgia", serif;
   background: #ffcaed;
@@ -13,6 +27,12 @@ body {
   height: 100vh;
   flex-direction: column;
   overflow: hidden;
+  background: repeating-linear-gradient(to right, #EAF1FF, #EAF1FF 20px, #DFE9FF 20px, #DFE9FF 40px);
+  transition: background 0.5s ease-in;
+}
+
+body.letter-opened {
+  background: repeating-linear-gradient(to right, #FFFBD9, #FFFBD9 20px, #FFF8BD 20px, #FFF8BD 40px);
 }
 .intro {
   text-align: center;
@@ -20,9 +40,13 @@ body {
   margin-bottom: 30px;
   opacity: 1;
   transition: opacity 1s ease;
+  color: #242120;
+  position: relative;
+  bottom: 30px;
 }
 .btn {
   padding: 10px 20px;
+  margin-top: -15px;
   font-size: 1rem;
   background: #ffffff;
   border: none;
@@ -43,11 +67,11 @@ body {
     #d2d2d2 28px
   );
   color: #00358b;
-  padding: 30px 30px 30px 70px;
+  padding: 55px 50px 50px 50px;
   border-radius: 10px;
   width: 80%;
   max-width: 500px;
-  height: 600px;
+  height: 700px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   font-size: 1.1rem;
   line-height: 1.6;
@@ -55,7 +79,7 @@ body {
   position: relative;
   white-space: pre-wrap;
   overflow-wrap: break-word;
-  font-family: "Courier New", monospace;
+  font-family: Im-Fell;
   overflow: visible;
 }
 .letter p {
@@ -65,11 +89,9 @@ body {
 .letter::before {
   content: "";
   position: absolute;
-  top: 0;
   left: 0;
-  width: 25px;
+  width: 350px;
   height: 100%;
-  background-image: radial-gradient(circle, #1e1e2f 6px, transparent 7px);
   background-size: 25px 40px;
   background-repeat: repeat-y;
   background-position: center;
@@ -77,10 +99,126 @@ body {
 }
 .signature {
   position: absolute;
-  bottom: -20px;
+  bottom: -10px;
   right: 6px;
   width: 180px;
   opacity: 0.9;
   pointer-events: none;
-  transform: rotate(-2deg);
+  transform: rotate(3deg);
+}
+
+#notif {
+  text-align: center;
+  color: #242120;
+  font-size: 5em;
+  font-family: Central;
+  position: relative;
+  bottom: 50px;
+  text-shadow: 1px 1px 1.5px;
+}
+
+.design {
+  position: absolute;
+  width: 60px;
+  opacity: 0;
+  transition: transform 0.5s ease-in;
+  pointer-events: none;
+}
+
+body.letter-opened .design {
+  transform: scale(8);
+  opacity: 1;
+}
+
+.stars {
+  top: 15%;
+  left: 30%;
+  position: absolute;
+}
+
+.stars2 {
+  bottom: 15%;
+  right: 20%;
+  position: absolute;
+}
+
+.stars3 {
+  top: 10%;
+  right: 30%;
+  position: absolute;
+  z-index: 1;
+}
+
+.message {
+  top: 25%;
+  left: 82%;
+  position: absolute;
+}
+
+.decoletter {
+  position: absolute;
+  left: 15%;
+}
+
+.clover {
+  position: absolute;
+  top: 65%;
+  left: 20%;
+}
+
+.lily {
+  position: absolute;
+  top: 80%;
+  left: 34%;
+  z-index: 1;
+}
+
+.bee {
+  position: absolute;
+  top: 45%;
+  left: 65%;
+  z-index: 1;
+}
+
+.miffy {
+  position: absolute;
+  top: 47%;
+  left: 80%;
+  z-index: 1;
+}
+
+body.letter-opened .stars {
+  transform: scale(8) rotate(30deg);
+}
+
+body.letter-opened .stars2 {
+  transform: scale(8) rotate(30deg);
+}
+
+body.letter-opened .stars3 {
+  transform: scale(2) rotate(-20deg);
+}
+
+body.letter-opened .message {
+  transform: scale(t) rotate(20deg);
+}
+
+body.letter-opened .clover {
+  transform: scale(2) rotate(-20deg);
+}
+
+body.letter-opened .lily {
+  transform: scale(4) rotate(-20deg);
+}
+
+body.letter-opened .decoletter {
+  transform: scale(4) rotate(-10deg);
+}
+
+body.letter-opened .bee {
+  transform: scale(2) rotate(-10deg);
+}
+
+body.letter-opened .miffy {
+  transform: scale(5) rotate(10deg);
 }
